@@ -1,0 +1,7 @@
+<div id="<%= dom_id gift %>">
+  <% if action_name != "show" %>
+    <%= link_to "Show this gift", gift, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this gift', edit_gift_path(gift), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
