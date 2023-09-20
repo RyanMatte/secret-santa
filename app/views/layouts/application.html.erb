@@ -5,12 +5,12 @@
   <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 </head>
 <body>
-  <header class="bg-white">
+  <header class="bg-indigo-900">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <div class="-m-1.5 p-1.5">
           <span class="sr-only">Your Company</span>
-          <img src="https://media.tenor.com/5tdbu8MuZowAAAAM/dancing-santa-claus-happy-christmas.gif" class="h-8 w-auto">
+          <img src="https://media.tenor.com/5tdbu8MuZowAAAAM/dancing-santa-claus-happy-christmas.gif" class="h-12 w-auto">
         </div>
       </div>
       <div class="flex lg:hidden">
@@ -23,15 +23,14 @@
       </div>
       <% if signed_in? -%>
         <div class="hidden lg:flex lg:gap-x-12">
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Your Wishes</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-white">Your Wishes</a>
+          <a href="#" class="text-sm font-semibold leading-6 text-white">Your matches Wishes</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-          <%= button_to t(".sign_out"), sign_out_path, class:"text-sm font-semibold leading-6 text-gray-900 hover:text-gray-400", method: :delete %>
+          <%= button_to t(".sign_out"), sign_out_path, class:"text-sm font-semibold leading-6 text-gray-200 hover:text-gray-400", method: :delete %>
         </div>
       <% end -%>
     </nav>
-    <!-- Mobile menu, show/hide based on menu open state. -->
   </header>
   <div id="flash">
     <% flash.each do |key, value| -%>

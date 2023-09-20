@@ -65,6 +65,6 @@ class GiftsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def gift_params
-      params.fetch(:gift, {})
+      params.require(:gift).permit(:name, :url, :notes)
     end
 end
