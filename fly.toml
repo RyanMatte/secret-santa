@@ -9,12 +9,9 @@ console_command = "/rails/bin/rails console"
 
 [build]
 
-[env]
-  DATABASE_URL = "sqlite3:///mnt/volume/production.sqlite3"
-
 [[mounts]]
-  source = "sqlite3_volume"
-  destination = "/mnt/volume"
+  source = "data"
+  destination = "/data"
 
 [http_service]
   internal_port = 3000

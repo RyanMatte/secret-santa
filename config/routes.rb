@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  mount Motor::Admin => '/motor_admin'
   resource :account, controller: "account", only: [:update, :edit]
   resources :gifts
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
