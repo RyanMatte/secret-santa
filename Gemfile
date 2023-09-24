@@ -52,6 +52,8 @@ gem "cloudinary"
 
 gem "ffi"
 
+gem "pg"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
