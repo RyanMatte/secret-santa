@@ -52,7 +52,7 @@ gem "cloudinary"
 
 gem "ffi"
 
-gem "pg"
+gem 'motor-admin'
 
 # Use Sass to process CSS
 # gem "sassc-rails"

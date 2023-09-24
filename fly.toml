@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for gamer-secret-santa on 2023-09-23T23:07:51-04:00
+# fly.toml app configuration file generated for gamer-secret-santa on 2023-09-23T23:40:45-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -9,9 +9,12 @@ console_command = "/rails/bin/rails console"
 
 [build]
 
+[env]
+  DATABASE_URL = "sqlite3:///mnt/volume/production.sqlite3"
+
 [[mounts]]
-  source = "data"
-  destination = "/data"
+  source = "sqlite3_volume"
+  destination = "/mnt/volume"
 
 [http_service]
   internal_port = 3000
