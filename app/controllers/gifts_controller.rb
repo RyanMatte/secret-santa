@@ -1,13 +1,16 @@
 class GiftsController < ApplicationController
-  before_action :set_gift, only: %i[ show edit update destroy ]
+  before_action :require_login
+  before_action :gift, only: %i[ show edit update destroy ]
+
 
   # GET /gifts or /gifts.json
   def index
-    @gifts = Gift.all
+    @gifts = current_user.gifts.all
   end
 
   # GET /gifts/1 or /gifts/1.json
   def show
+    @gift
   end
 
   # GET /gifts/new
@@ -17,11 +20,12 @@ class GiftsController < ApplicationController
 
   # GET /gifts/1/edit
   def edit
+    @gift
   end
 
   # POST /gifts or /gifts.json
   def create
-    @gift = Gift.new(gift_params)
+    @gift = current_user.gifts.new(gift_params)
 
     respond_to do |format|
       if @gift.save
@@ -59,8 +63,8 @@ class GiftsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_gift
-      @gift = Gift.find(params[:id])
+    def gift
+      @gift ||= Gift.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

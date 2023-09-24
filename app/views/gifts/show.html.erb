@@ -6,10 +6,10 @@
 
     <%= render @gift %>
 
-    <%= link_to 'Edit this gift', edit_gift_path(@gift), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this gift', edit_gift_path(@gift), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 hover:bg-gray-300 inline-block font-medium" %>
     <div class="inline-block ml-2">
-      <%= button_to 'Destroy this gift', gift_path(@gift), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to 'Delete this gift', gift_path(@gift), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 hover:bg-gray-300 font-medium" %>
     </div>
-    <%= link_to 'Back to gifts', gifts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Back to gifts', gifts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 hover:bg-gray-300 inline-block font-medium" %>
   </div>
 </div>

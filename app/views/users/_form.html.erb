@@ -1,9 +1,32 @@
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
-</div>
-
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
+ <%= form_for @user do |form| %>
+  <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <img class="mx-auto h-50 w-auto -mt-20" src="https://art.pixilart.com/bb3491722558ba5.png" alt="Your Company">
+      <h2 class="text-center text-2xl -mt-8 font-bold leading-9 tracking-tight text-gray-900">Sign up for Secret Santa 2023</h2>
+    </div>
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <form class="space-y-6"">
+        <div>
+          <div class="mt-2">
+             <div class="text-field">
+              <%= form.label :email %>
+              <%= form.text_field :email, type: 'email', class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="mt-2">
+            <div class="password-field">
+              <%= form.label :password %>
+              <%= form.password_field :password, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+            </div>
+          </div>
+        </div>
+        <div>
+          <%= form.submit class: "flex w-full justify-center rounded-md bg-indigo-600 px-3 mt-4 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"%>
+        </div>
+      </form>
+    </div>
+  </div>
+<% end %>
+<img src="https://media.tenor.com/5tdbu8MuZowAAAAM/dancing-santa-claus-happy-christmas.gif" class="mx-auto">

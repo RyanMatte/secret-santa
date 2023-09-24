@@ -1,13 +1,23 @@
 <div id="<%= dom_id gift %>">
   <% if action_name != "show" %>
-    <p> Name: </p>
-    <%= gift.name %>
-    <p> Url: </p>
-    <%= gift.url %>
-    <p> Notes: </p>
-    <%= gift.notes %>
-    <%= link_to "Show this gift", gift, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this gift', edit_gift_path(gift), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
+    <div class = "left-auto">
+      <p class="block text-lg font-medium leading-6 text-gray-900"> Name: </p>
+      <p class= "blockfont-medium leading-6 text-gray-900"><%= gift.name %></p>
+      <p class="block text-lg font-medium leading-6 text-gray-900"> Url: </p>
+      <p class= "block font-medium leading-6 text-gray-900"><%= gift.url %></p>
+      <p class="block text-lg font-medium leading-6 text-gray-900"> Notes: </p>
+      <p class= "blockfont-medium leading-6 text-gray-900"><%= gift.notes %></p>
+      <br>
+      <%= link_to "Show this gift", gift, class: "rounded-lg py-3 px-5 bg-gray-100 hover:bg-gray-300 inline-block font-medium mt-4" %>
+      <%= link_to 'Edit this gift', edit_gift_path(gift), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 hover:bg-gray-300 inline-block font-medium" %>
+      <hr class="mt-6">
+    <div>
+  <% else %>
+    <p class="block text-lg font-medium leading-6 text-gray-900"> Name: </p>
+    <p class= "block font-medium leading-6 text-gray-900"><%= gift.name %></p>
+    <p class="block text-lg font-medium leading-6 text-gray-900"> Url: </p>
+    <p class= "block font-medium leading-6 text-gray-900"><%= gift.url %></p>
+    <p class="block text-lg font-medium leading-6 text-gray-900"> Notes: </p>
+    <p class= "block font-medium leading-6 text-gray-900"><%= gift.notes %></p>
   <% end %>
 </div>

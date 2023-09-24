@@ -4,11 +4,45 @@
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Gifts</h1>
-    <%= link_to 'New gift', new_gift_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <h1 class="text-4xl font-semibold leading-7 text-gray-900">Gift Ideas</h1>
+    <%= link_to 'New gift', new_gift_path, class: "rounded-lg py-3 px-5 bg-blue-600 hover:bg-blue-900 text-white block font-medium" %>
   </div>
-
-  <div id="gifts" class="min-w-full">
-    <%= render @gifts %>
+  <h3 class="font-bold text-2xl my-4">Rules</h3>
+  <div>
+      <p>
+        <strong>1.</strong> The maximum gift will be $80 USD. Going over or under within reason is fine
+      </p>
+      <p>
+        <strong>2.</strong> No gift cards/cash/online game purchases can be included 
+      </p>
+      <p>
+        <strong>3.</strong> gifts must be sent prior to the agreed exchange date
+      </p>
+      <p>
+        <strong>4.</strong> try not to indicate your name on packages/postages being sent to your recipient
+      </p>
+      <p>
+        <strong>5.</strong> No gag gifts or joke gifts, we want this to be fair for all the people involved
+      </p>
+      <p>
+        <strong>6.</strong> Shipping is not included in the 80 dollar limit, be mindful of that when purchasing any gifts.
+      </p>
+      <p>
+        <strong>7.</strong> Do not discuss with others who you are matched with unless it is too difficult to buy a gift for that person
+      </p>
+      <p>
+        <strong>8.</strong> You cannot drop out once this is filled out, you have over 2 months to prepare so no excuses dumbass
+      </p>
+      <p>
+        <strong>9.</strong> Do not put down specific gift ideas. You can link websites with stuff you like, not links to specific items
+      </p>
+      <p>
+        <strong>10.</strong> Keep the responses to just gift ideas, nothing obscene or provocative (racism, homophobia, hate towards another person/distain), if so you will not be included
+      </p>
+    </div>
+  <div class = "flex flex-row">
+    <div id="gifts" class="min-w-full mt-4">
+      <%= render @gifts %>
+    </div>
   </div>
 </div>

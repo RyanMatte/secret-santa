@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
+  <title>Santa 2023</title>
+  <link rel = "icon" href = "https://media.tenor.com/5tdbu8MuZowAAAAM/dancing-santa-claus-happy-christmas.gif"  type = "image/x-icon">
   <%= csrf_meta_tag %>
   <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 </head>
@@ -23,8 +25,9 @@
       </div>
       <% if signed_in? -%>
         <div class="hidden lg:flex lg:gap-x-12">
-          <a href="#" class="text-sm font-semibold leading-6 text-white">Your Wishes</a>
-          <a href="#" class="text-sm font-semibold leading-6 text-white">Your matches Wishes</a>
+          <%= link_to "Your Wishes", gifts_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400" %>
+          <%= link_to "Account", edit_account_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400" %>
+          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="text-sm font-semibold leading-6 text-white hover:text-gray-400">Your matches Wishes</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           <%= button_to t(".sign_out"), sign_out_path, class:"text-sm font-semibold leading-6 text-gray-200 hover:text-gray-400", method: :delete %>
@@ -32,11 +35,8 @@
       <% end -%>
     </nav>
   </header>
-  <div id="flash">
-    <% flash.each do |key, value| -%>
-      <div id="flash_<%= key %>"><%=h value %></div>
-    <% end %>
-  </div>
-  <%= yield %>
-</body>
+  <main class = "px-80 pt-10" >
+    <%= yield %>
+  </main>
+  </body>
 </html>
