@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_24_155521) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_27_231346) do
   create_table "gifts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -229,6 +229,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_24_155521) do
     t.string "country"
     t.string "state"
     t.string "postal_code"
+    t.string "matched_with"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

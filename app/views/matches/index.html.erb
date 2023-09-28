@@ -1,0 +1,45 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <h3 class="font-bold text-3xl my-4">You are matched with <%= @user_match.name.capitalize %></h3>
+  <h3 class="font-bold text-2xl my-4 mt-8">Address Information:</h3>
+  <div class="mt-6 border-t border-gray-100">
+    <dl class="divide-y divide-gray-100">
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-bold leading-6 text-gray-900">Full name: </dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @user_match.name.capitalize %> <%= @user_match.last_name.capitalize%></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-bold leading-6 text-gray-900">Address: </dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @user_match.address %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-bold leading-6 text-gray-900">Apartment number, suite number, etc: </dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @user_match.apartment_suite %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-bold leading-6 text-gray-900">City: </dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @user_match.city%></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-bold leading-6 text-gray-900">Country: </dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @user_match.country%></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-bold leading-6 text-gray-900">State: </dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @user_match.state%></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-bold leading-6 text-gray-900">Postal Code: </dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @user_match.postal_code%></dd>
+      </div>
+    </dl>
+  </div>
+  <h3 class="font-bold text-2xl my-4 mt-8"> Here are the gifts they have listed</h3>
+  <div class="mt-6 border-t border-gray-100">
+        <div id="gifts">
+          <%= render partial: "gift", collection: @gifts %>
+        </div>
+  </div>
+</div>

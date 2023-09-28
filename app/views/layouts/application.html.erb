@@ -27,15 +27,25 @@
         <div class="hidden lg:flex lg:gap-x-12">
           <%= link_to "Your Wishes", gifts_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400" %>
           <%= link_to "Account", edit_account_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400" %>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="text-sm font-semibold leading-6 text-white hover:text-gray-400">Your matches Wishes</a>
+          <%= link_to "Your Matches Wishes", matches_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400" %>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           <%= button_to t(".sign_out"), sign_out_path, class:"text-sm font-semibold leading-6 text-gray-200 hover:text-gray-400", method: :delete %>
         </div>
       <% end -%>
+      <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="lg:hidden" role="dialog" aria-modal="true">
+          <% if signed_in? -%>
+           <div class="-my-6 divide-y divide-gray-500/25 right-auto pr-20">
+            <%= link_to "Your Wishes", gifts_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400 pr-4" %>
+            <%= link_to "Account", edit_account_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400 pr-4" %>
+            <%= link_to "Your Matches Wishes", matches_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400 pr-4" %>
+          </div>
+        <% end -%>
+      </div>
     </nav>
   </header>
-  <main class = "px-80 pt-10" >
+  <main class = "px-40 pt-10" >
     <%= yield %>
   </main>
   </body>
