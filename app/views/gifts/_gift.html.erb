@@ -1,23 +1,26 @@
-<div id="<%= dom_id gift %>">
-  <% if action_name != "show" %>
-    <div class = "left-auto">
-      <p class="block text-lg font-medium leading-6 text-gray-900"> Name: </p>
-      <p class= "blockfont-medium leading-6 text-gray-900"><%= gift.name %></p>
-      <p class="block text-lg font-medium leading-6 text-gray-900"> Url: </p>
-      <p class= "block font-medium leading-6 text-gray-900"><%= gift.url %></p>
-      <p class="block text-lg font-medium leading-6 text-gray-900"> Notes: </p>
-      <p class= "blockfont-medium leading-6 text-gray-900"><%= gift.notes %></p>
-      <br>
-      <%= link_to "Show this gift", gift, class: "rounded-lg py-3 px-5 bg-gray-100 hover:bg-gray-300 inline-block font-medium mt-4" %>
-      <%= link_to 'Edit this gift', edit_gift_path(gift), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 hover:bg-gray-300 inline-block font-medium" %>
-      <hr class="mt-6">
-    <div>
-  <% else %>
-    <p class="block text-lg font-medium leading-6 text-gray-900"> Name: </p>
-    <p class= "block font-medium leading-6 text-gray-900"><%= gift.name %></p>
-    <p class="block text-lg font-medium leading-6 text-gray-900"> Url: </p>
-    <p class= "block font-medium leading-6 text-gray-900"><%= gift.url %></p>
-    <p class="block text-lg font-medium leading-6 text-gray-900"> Notes: </p>
-    <p class= "block font-medium leading-6 text-gray-900"><%= gift.notes %></p>
-  <% end %>
+<div id="<%= dom_id gift %>" class="border rounded-lg p-4 my-4 ml-4">
+  <div class="my-4 ml-4">
+    <% if action_name != "show" %>
+      <div class="flex" style="display: flex; justify-content: space-between; align-items: center; margin: 10px;">
+        <div style="width: 75%;">
+          <p style="font-size: 1.125rem; font-weight: 500; color: #1f2937; margin-left: 1rem;">Name:</p>
+          <p style="font-weight: 500; color: #1f2937; margin-left: 1rem;"><%= gift.name %></p>
+          <p style="font-size: 1.125rem; font-weight: 500; color: #1f2937; margin-left: 1rem;">Url:</p>
+          <p style="font-weight: 500; color: #1f2937; margin-left: 1rem;"><%= gift.url %></p>
+          <p style="font-size: 1.125rem; font-weight: 500; color: #1f2937; margin-left: 1rem;">Notes:</p>
+          <p style="font-weight: 500; color: #1f2937; margin-left: 1rem;"><%= gift.notes %></p>
+        </div>
+        <div style="width: 25%; display: flex; justify-content: flex-end; align-items: center;">
+          <%= link_to 'Edit', edit_gift_path(gift), style: "border-radius: 0.5rem; padding: 0.75rem 1.75rem; background-color: #f3f4f6; font-weight: 500; text-decoration: none; color: inherit;", onmouseover: "this.style.backgroundColor='#e5e7eb';", onmouseout: "this.style.backgroundColor='#f3f4f6';" %>
+        </div>
+      </div>
+    <% else %>
+      <p style="font-size: 1.125rem; font-weight: 500; color: #1f2937; margin-left: 1rem;">Name:</p>
+      <p style="font-weight: 500; color: #1f2937; margin-left: 1rem;"><%= gift.name %></p>
+      <p style="font-size: 1.125rem; font-weight: 500; color: #1f2937; margin-left: 1rem;">Url:</p>
+      <p style="font-weight: 500; color: #1f2937; margin-left: 1rem;"><%= gift.url %></p>
+      <p style="font-size: 1.125rem; font-weight: 500; color: #1f2937; margin-left: 1rem;">Notes:</p>
+      <p style="font-weight: 500; color: #1f2937; margin-left: 1rem;"><%= gift.notes %></p>
+    <% end %>
+  </div>
 </div>

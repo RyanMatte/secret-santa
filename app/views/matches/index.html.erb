@@ -2,6 +2,15 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
+  <div class="flex justify-between items-center">
+    <h1 class="text-4xl font-semibold leading-7 text-gray-900">Your outbound packages</h1>
+    <%= link_to 'Add a package', new_shipping_path, class: "rounded-lg py-3 px-5 bg-blue-600 hover:bg-blue-900 text-white block font-medium" %>
+  </div>
+  <div class="mt-6 border-t border-gray-100">
+        <div id="shipping">
+          <%= render partial: "shipping", collection: @shippings %>
+        </div>
+  </div>
   <h3 class="font-bold text-3xl my-4">You are matched with <%= @user_match.name.capitalize %></h3>
   <h3 class="font-bold text-2xl my-4 mt-8">Address Information:</h3>
   <div class="mt-6 border-t border-gray-100">
@@ -38,8 +47,8 @@
   </div>
   <h3 class="font-bold text-2xl my-4 mt-8"> Here are the gifts they have listed</h3>
   <div class="mt-6 border-t border-gray-100">
-        <div id="gifts">
-          <%= render partial: "gift", collection: @gifts %>
-        </div>
+    <div id="gifts">
+      <%= render partial: "gift", collection: @gifts %>
+    </div>
   </div>
 </div>

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resource :account, controller: "account", only: [:update, :edit]
   resources :gifts
+  resources :shippings, only: [:update, :show, :edit, :create, :new] do
+    put "update_received", on: :member
+  end
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
   resources :matches, only: [:index]

@@ -5,6 +5,7 @@ class MatchesController < ApplicationController
     def index
       @user_match = User.find_by(name: current_user.matched_with)
       @gifts = @user_match.gifts.all
+      @shippings = current_user.shippings.all
     end
 
     private

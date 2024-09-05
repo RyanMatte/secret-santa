@@ -1,0 +1,15 @@
+<div id="<%= dom_id shipping %>">
+    <dl class="divide-y divide-gray-100 <%= "bg-green-400" if shipping.received == true %>">
+        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <%  if shipping.received == true %>
+                <dd class="mt-1 text-xl leading-6 text-gray-700 sm:col-span-2 sm:mt-0 ml-2">Package has been marked as received</dd>
+            <% else %>
+                <dt class="text-xl font-medium leading-6 text-gray-900"><strong>Shipped At: </strong><%= shipping.shipped_at %></strong></dt>
+                <dd class="mt-1 text-xl leading-6  text-grsm:col-span-2 sm:mt-0"><strong>Expected At: </strong><%=shipping.expected_at %></dd>
+                <dd class="mt-1 text-xl leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><strong>Name on package: </strong><%=shipping.name_on_package %></dd>
+                <%= button_to "Mark as Received", shipping_path(shipping, mark_as_received: true), method: :put, data: { confirm: 'Are you sure?' }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-48" %>
+            <% end %>
+
+        </div>
+    <dl class="divide-y divide-gray-100">
+</div>

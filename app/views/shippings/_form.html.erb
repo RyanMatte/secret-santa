@@ -1,0 +1,25 @@
+<%= form_with(model: shipping, class: "contents") do |form| %>
+  <% if shipping.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(shipping.errors.count, "error") %> prohibited this shipping from being saved:</h2>
+      <ul>
+        <% shipping.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form.label :shipped_at %>
+  <%= form.date_select :shipped_at, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+  <%= form.label :expected_at %>
+  <%= form.date_select :expected_at, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"  %>
+  <br>
+  <%= form.label :name_on_package %>
+  <%= form.text_field :name_on_package, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"  %>
+
+  <br>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-lg mt-2 py-3 px-5 bg-blue-600 text-white hover:bg-blue-900 inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

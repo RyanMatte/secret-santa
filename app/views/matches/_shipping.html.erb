@@ -1,0 +1,20 @@
+<div id="<%= dom_id shipping %>">
+    <% if shipping.received == true %>
+        <dl class="divide-y divide-gray-100 bg-green-400">
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-xl font-medium leading-6 text-gray-900"><strong>Shipped At: </strong><%= shipping.shipped_at %></strong></dt>
+                <dd class="mt-1 text-xl leading-6 text-gray-900 sm:col-span-2 sm:mt-0"><strong>Expected At: </strong><%=shipping.expected_at %></dd>
+                <dd class="mt-1 text-xl leading-6 text-gray-900 sm:col-span-2 sm:mt-0"><strong>Name on package: </strong><%=shipping.name_on_package %></dd>
+            </div>
+        <dl class="divide-y divide-gray-100">
+    <%else%>
+        <dl class="divide-y divide-gray-100 bg-red-400">
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                    <dt class="text-xl font-medium leading-6 text-gray-900"><strong>Shipped At: </strong><%= shipping.shipped_at %></strong></dt>
+                    <dd class="mt-1 text-xl leading-6 text-gray-900 sm:col-span-2 sm:mt-0"><strong>Expected At: </strong><%=shipping.expected_at %></dd>
+                    <dd class="mt-1 text-xl leading-6 text-gray-900 sm:col-span-2 sm:mt-0"><strong>Name on package: </strong><%=shipping.name_on_package %></dd>
+                    <%= link_to 'Edit this shipping', edit_shipping_path(shipping), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 hover:bg-gray-300 inline-block font-medium w-48" %>
+                </div>
+            <dl class="divide-y divide-gray-100">
+    <% end %>
+</div>

@@ -3,43 +3,50 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
+  <% if @user_match.present? %>
+    <div class="flex justify-between items-center">
+      <h1 class="text-4xl font-semibold leading-7 text-gray-900">Incoming Packages</h1>
+    </div>
+
+    <div class="mt-6 border-t border-gray-100">
+      <div id="shipping">
+        <%= render partial: "shipping", collection: @shippings %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @name == "Dylan" %>
+    <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
+      <img src="https://akns-images.eonline.com/eol_images/Entire_Site/20171016/rs_1024x759-171116124400-1024-tim-allen-santa-clause.jpg?fit=around%7C1024:759&output-quality=90&crop=1024:759;center,top" alt="Dylan's Picture" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;">
+    </div>
+  <% end %>
+
+  <div class="flex justify-between items-center mt-4">
     <h1 class="text-4xl font-semibold leading-7 text-gray-900">Gift Ideas</h1>
     <%= link_to 'New gift', new_gift_path, class: "rounded-lg py-3 px-5 bg-blue-600 hover:bg-blue-900 text-white block font-medium" %>
   </div>
-  <h3 class="font-bold text-2xl my-4">Rules</h3>
-  <div>
-      <p>
-        <strong>1.</strong> The maximum gift will be $80 USD or $110 CAD. Going over or under within reason is fine
-      </p>
-      <p>
-        <strong>2.</strong> No gift cards/cash/online game purchases can be included 
-      </p>
-      <p>
-        <strong>3.</strong> Gifts must be sent prior to the agreed exchange date
-      </p>
-      <p>
-        <strong>4.</strong> Try not to indicate your name on packages/postages being sent to your recipient
-      </p>
-      <p>
-        <strong>5.</strong> No gag gifts or joke gifts, we want this to be fair for all the people involved
-      </p>
-      <p>
-        <strong>6.</strong> Shipping is not included in the limit, be mindful of that when purchasing any gifts.
-      </p>
-      <p>
-        <strong>7.</strong> Do not discuss with others who you are matched with unless it is too difficult to buy a gift for that person
-      </p>
-      <p>
-        <strong>8.</strong> Once the matches are made, you cannot drop out
-      </p>
-      <p>
-        <strong>9.</strong> Do not put down specific gift ideas. You can link websites with stuff you like, not links to specific items
-      </p>
-      <p>
-        <strong>10.</strong> Keep the responses to just gift ideas, nothing obscene or provocative
-      </p>
+  <div class="mt-6 border-t border-gray-100">
+    <div id="rules" class="py-4">
+      <h3 class="font-bold text-2xl my-4">Rules</h3>
+      <ol class="pl-6 text-lg">
+        <% rules = [
+          "The maximum gift will be $80 USD or $110 CAD. Going over or under within reason is fine",
+          "No gift cards/cash/online game purchases can be included",
+          "Gifts must be sent prior to the agreed exchange date",
+          "Try not to indicate your name on packages/postages being sent to your recipient",
+          "No gag gifts or joke gifts, we want this to be fair for all the people involved",
+          "Shipping is not included in the limit, be mindful of that when purchasing any gifts.",
+          "Do not discuss with others who you are matched with unless it is too difficult to buy a gift for that person",
+          "Once the matches are made, you cannot drop out",
+          "Do not put down specific gift ideas. You can link websites with stuff you like, not links to specific items",
+          "Keep the responses to just gift ideas, nothing obscene or provocative"
+        ] %>
+        <% rules.each_with_index do |rule, index| %>
+          <li class="mb-2"><%= "#{index + 1}. #{rule}" %></li>
+        <% end %>
+      </ol>
     </div>
+  </div>
   <div class = "flex flex-row">
     <div id="gifts" class="min-w-full mt-4">
       <%= render @gifts %>

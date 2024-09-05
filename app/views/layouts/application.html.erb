@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head> 
-  <title>Santa 2023</title>
+  <title>Santa 2024</title>
   <link rel = "icon" href = "https://media.tenor.com/5tdbu8MuZowAAAAM/dancing-santa-claus-happy-christmas.gif"  type = "image/x-icon">
   <%= csrf_meta_tag %>
   <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -11,7 +11,6 @@
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
         <div class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
           <img src="https://media.tenor.com/5tdbu8MuZowAAAAM/dancing-santa-claus-happy-christmas.gif" class="h-12 w-auto">
         </div>
       </div>
@@ -27,7 +26,7 @@
         <div class="hidden lg:flex lg:gap-x-12">
           <%= link_to "Your Wishes", gifts_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400" %>
           <%= link_to "Account", edit_account_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400" %>
-          <%= link_to "Your Matches Wishes", matches_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400" %>
+          <%= link_to "Your Matches Wishes", {}, class: "text-sm font-semibold leading-6 text-gray-400 pr-4 hover:text-indigo-500", disabled: true, title: "This will be unlocked once matches are completed", onclick: "return false;" %>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
           <%= button_to t(".sign_out"), sign_out_path, class:"text-sm font-semibold leading-6 text-gray-200 hover:text-gray-400", method: :delete %>
@@ -36,10 +35,10 @@
       <!-- Mobile menu, show/hide based on menu state. -->
         <div class="lg:hidden" role="dialog" aria-modal="true">
           <% if signed_in? -%>
-           <div class="-my-6 divide-y divide-gray-500/25 right-auto pr-20">
-            <%= link_to "Your Wishes", gifts_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400 pr-4" %>
-            <%= link_to "Account", edit_account_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400 pr-4" %>
-            <%= link_to "Your Matches Wishes", matches_path, class: "text-sm font-semibold leading-6 text-white hover:text-gray-400 pr-4" %>
+          <div class="-my-6 divide-y divide-gray-500/25 right-auto pr-20">
+            <%= link_to "Your Wishes", gifts_path, class: "text-lg font-semibold leading-6 text-white hover:text-gray-400 pr-4" %>
+            <%= link_to "Account", edit_account_path, class: "text-lg font-semibold leading-6 text-white hover:text-gray-400 pr-4" %>
+            <%= link_to "Your Matches Wishes", {}, class: "text-lg font-semibold leading-6 text-gray-400 pr-4", disabled: true, title: "This will be unlocked once matches are completed" %>
           </div>
         <% end -%>
       </div>
