@@ -2,6 +2,6 @@
   <h1 class="font-bold text-4xl mb-4" style="margin-bottom: 20px;">Editing</h1>
 
   <%= render "form", gift: @gift %>
-
   <%= link_to "Back", gifts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium w-32" %>
+  <%= button_to 'Delete this gift', gift_path(@gift), method: :delete, class:"rounded-lg py-3 px-5 mb-4 bg-gray-100 inline-block font-medium w-32", style: "float: right; color: red;" %>
 </div>

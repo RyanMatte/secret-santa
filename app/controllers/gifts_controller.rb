@@ -62,8 +62,7 @@ class GiftsController < ApplicationController
   def destroy
     @gift.destroy
     respond_to do |format|
-      format.html { redirect_to gifts_url, notice: 'Gift was successfully destroyed.' }
-      format.turbo_stream { render turbo_stream: turbo_stream.remove(@gift) }
+      format.html { redirect_to root_url, notice: 'Gift was successfully destroyed.' }
     end
   end
 
