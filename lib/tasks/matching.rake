@@ -26,8 +26,7 @@ namespace :matching do
           while receiver == giver
             receiver = available.sample
           end
-
-          result << "#{giver.name} is matched with #{receiver.name}"
+          
           available.delete(receiver)
 
           # Update the matched_with column in the database
